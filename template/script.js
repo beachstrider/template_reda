@@ -251,4 +251,11 @@ $(document).ready(function () {
         $('.navbar').toggleClass('open');
     });
 
+
+    // Accordion
+
+    $('.accordion-holder > .item').on('click', function(){
+        $('.accordion-holder > .item').removeClass('open');
+        $(this).addClass('open');
+    });
 });

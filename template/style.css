@@ -319,9 +319,9 @@ body {
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
-    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     box-shadow: none;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -375,10 +375,67 @@ label {
     border-bottom: 2px #d13648 solid;
 }
 
-.btn-primary:hover{
+.btn-primary:hover {
     background: #22292a;
     border-bottom: 2px #161b1b solid;
 }
+
+.accordion-holder {
+    margin-bottom: 20px;
+}
+
+.accordion-holder>.item {
+    margin-bottom: 15px;
+}
+
+.accordion-holder>.item .accordion-heading {
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 5px;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+.accordion-holder>.item .accordion-title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.accordion-holder>.item .accordion-title a {
+    color: #555;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+}
+
+.accordion-holder>.item .accordion-title a span {
+    background-color: #aaaaaa;
+    color: #fff;
+    display: inline-block;
+    margin-right: 10px;
+    padding: 15px 20px;
+    border-radius: 5px;
+}
+
+.accordion-holder>.item.open .accordion-title a span {
+    background-color: #ee4054;
+}
+
+.accordion-holder>.item .accordion-body{
+    padding: 20px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.accordion-holder>.item .accordion-collapse{
+    height: 0;
+    transition: .3s;
+    overflow: hidden;
+}
+
+.accordion-holder>.item.open .accordion-collapse{
+    height: 130px;
+}
+
 
 
 /* Header section */
@@ -932,7 +989,6 @@ section p {
     font-size: 16px;
 }
 
-
 /* Account page */
 
 .card.register .checkout-subtitle {
@@ -959,25 +1015,25 @@ section p {
     margin-top: 15px;
 }
 
-.card.my-wishlist-page .heading-title{
+.card.my-wishlist-page .heading-title {
     font-size: 24px;
     font-family: 'Barlow', sans-serif;
     font-weight: 600;
     margin-bottom: 15px;
 }
 
-.card.my-wishlist-page .row{
+.card.my-wishlist-page .row {
     margin: 0;
     border-top: solid 1px #ddd;
 }
 
-.card.my-wishlist-page .row > div{
+.card.my-wishlist-page .row>div {
     display: flex;
     align-items: center;
     padding: 30px;
 }
 
-.card.my-wishlist-page .row > div img{
+.card.my-wishlist-page .row>div img {
     width: 100%;
 }
 
@@ -987,7 +1043,7 @@ section p {
     padding-bottom: 6px;
 }
 
-.card.my-wishlist-page .product-name a{
+.card.my-wishlist-page .product-name a {
     color: #434343;
 }
 
@@ -998,12 +1054,61 @@ section p {
     font-weight: 600;
 }
 
+.card.faq, .card.terms-conditions{
+    margin-bottom: 40px;
+}
+
+.card.faq .card-title, .card.terms-conditions .card-title {
+    font-size: 30px;
+    font-weight: 600;
+    color: #555;
+    padding-bottom: 15px;
+    border-bottom: 1px #eaeaea solid!important;
+    margin-bottom: 10px;
+}
+
+.card.faq .title-tag {
+    display: block;
+    font-style: normal;
+    font-size: 14px;
+    color: #666;
+    padding-bottom: 30px;
+}
+
+.card.terms-conditions h3{
+    font-size: 18px;
+    color: #555;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.card.terms-conditions ol{
+    padding-left: 22px;
+}
+
+.card.terms-conditions li{
+    list-style: decimal;
+    font-style: normal;
+    font-size: 14px;
+    color: #666;
+    padding-bottom: 20px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.card.terms-conditions p{
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+
 
 /* Footer section */
 
 footer {
     padding-top: 30px;
     padding-bottom: 30px;
+    margin-top: 40px;
     font-size: 14px;
     background: #f6f6f6;
 }
@@ -1528,7 +1633,7 @@ footer .social .youtube a {
         position: relative;
         width: calc( 100% * 5);
     }
-    .card.my-wishlist-page .row > div{
+    .card.my-wishlist-page .row>div {
         padding: 0 0 10px;
     }
 }
