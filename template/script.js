@@ -258,4 +258,19 @@ $(document).ready(function () {
         $('.accordion-holder > .item').removeClass('open');
         $(this).addClass('open');
     });
+
+
+    // Tabs
+
+    $('.nav-tabs > li > a').on('click', function(e){
+        e.preventDefault();
+        const targetTab = $(this).closest('li');
+        const targetPane = $($(this).attr('href'));
+
+        targetTab.closest('ul').children('li').removeClass('active');
+        targetTab.addClass('active');
+
+        targetPane.closest('.tab-content').children('.tab-pane').removeClass('active');
+        targetPane.addClass('active');
+    });
 });
