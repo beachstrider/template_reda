@@ -236,6 +236,14 @@ $(document).ready(function () {
         }
     });
 
+    $('.product-slider-controls > .btn-prev').on('click', function(){
+        productNavigateLeft();
+    });
+
+    $('.product-slider-controls > .btn-next').on('click', function(){
+        productNavigateRight();
+    });
+
 
     // Toggling
 
