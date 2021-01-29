@@ -164,62 +164,67 @@ $(document).ready(function () {
 
     // Product sliding
 
-    // let $productSlider = $('#product-slider > .item'),
-    //     productSlideWidth = $('#product-slider > .item').width(),
-    //     productSlideDiff = 0,
-    //     productCurSlide = 0,
-    //     productNumOfSlides = $('#product-slider > .item').length - 1;
+    let $productSlider = $('#product-slider > .item'),
+        productSlideWidth = $('#product-slider > .item').width(),
+        productSlideDiff = 0,
+        productCurSlide = 0,
+        productNumOfSlides = 1;
 
-    // function changeSlides(instant) {
-    //     if (!instant) {
-    //         $productSlider.addClass("animating");
-    //     }
-    //     $productSlider.css("transform", "translate3d(" + -productCurSlide * 100 + "%,0,0)");
-    //     productSlideDiff = 0;
-    // }
+    function productChangeSlides(instant) {
+        if (!instant) {
+            $productSlider.addClass("animating");
 
-    // function navigateLeft() {
-    //     if (productCurSlide > 0) productCurSlide--;
-    //     changeSlides();
-    // }
+            setTimeout(function () {
+                $productSlider.removeClass("animating");
+                sliderFading = false;
+            }, slideAnimTime);
+        }
+        $productSlider.css("transform", "translate3d(" + -productCurSlide * 100 + "%,0,0)");
+        productSlideDiff = 0;
+    }
 
-    // function navigateRight() {
-    //     if (productCurSlide < productNumOfSlides) productCurSlide++;
-    //     changeSlides();
-    // }
+    function productNavigateLeft() {
+        if (productCurSlide > 0) productCurSlide--;
+        productChangeSlides();
+    }
 
-    // $('#product-slider').on('mousedown touchstart', function (e) {
-    //     console.log('touch start');
-    //     const startX = (e.pageX || e.originalEvent.touches[0].pageX) - $(this).offset().left;
-    //     productSlideDiff = 0;
+    function productNavigateRight() {
+        if (productCurSlide < productNumOfSlides) productCurSlide++;
+        productChangeSlides();
+    }
+
+    $('#product-slider').on('mousedown', function(e){ e.preventDefault(); });
+
+    $('#product-slider').on('mousedown touchstart', function (e) {
+        const startX = (e.pageX || e.originalEvent.touches[0].pageX) - $(this).offset().left;
+        productSlideDiff = 0;
         
-    //     $('#product-slider').on('mousemove touchmove', function (e) {
-    //         console.log('touch moving');
-    //         const x = (e.pageX || e.originalEvent.touches[0].pageX) - $(this).offset().left;
-    //         productSlideDiff = (startX - x) / productSlideWidth * 70;
+        $('#product-slider').on('mousemove touchmove', function (e) {
+            const x = (e.pageX || e.originalEvent.touches[0].pageX) - $(this).offset().left;
+            productSlideDiff = (startX - x) / productSlideWidth * 70;
 
-    //         if ((!productCurSlide && productSlideDiff < 0) || (productCurSlide === productNumOfSlides && productSlideDiff > 0)) productSlideDiff /= 2;
-    //         $productSlider.css('transform', 'translate3d(' + (-productCurSlide * 100 - productSlideDiff) + '%,0,0)');
-    //     });
-    // });
+            if ((!productCurSlide && productSlideDiff < 0) || (productCurSlide === productNumOfSlides && productSlideDiff > 0)) productSlideDiff /= 2;
+            $productSlider.css('transform', 'translate3d(' + (-productCurSlide * 100 - productSlideDiff) + '%,0,0)');
+        });
+    });
 
-    // $('#product-slider').on("mouseup touchend", function (e) {
-    //     $('#product-slider').off("mousemove touchmove");
+    $('#product-slider').on("mouseup touchend", function (e) {
+        $('#product-slider').off("mousemove touchmove");
 
-    //     if (!productSlideDiff) {
-    //         changeSlides(true);
-    //         return;
-    //     }
-    //     if (productSlideDiff > - 20 && productSlideDiff < 20) {
-    //         changeSlides();
-    //         return;
-    //     }
-    //     if (productSlideDiff <= - 20) {
-    //         navigateLeft();
-    //     }
-    //     if (productSlideDiff >= 20) {
-    //         navigateRight();
-    //     }
-    // });
+        if (!productSlideDiff) {
+            productChangeSlides(true);
+            return;
+        }
+        if (productSlideDiff > - 20 && productSlideDiff < 20) {
+            productChangeSlides();
+            return;
+        }
+        if (productSlideDiff <= - 20) {
+            productNavigateLeft();
+        }
+        if (productSlideDiff >= 20) {
+            productNavigateRight();
+        }
+    });
 
 });

@@ -463,12 +463,17 @@ section.product-tabs-slider .product-slider-wrapper {
 #product-slider{
     position: relative;
     width: calc( 100% / 4 * 5 );
+    user-select: none;
 }
 
 #product-slider > .item{
     width: 20%;
     float: left;
     position: relative;
+}
+
+#product-slider > .item.animating{
+    transition: .5s;
 }
 
 #product-slider .product{
@@ -487,6 +492,21 @@ section.product-tabs-slider .product-slider-wrapper {
     left: 0;
     bottom: 0;
     right: 0;
+}
+#product-slider .image a{
+    display: block;
+    position: relative;
+}
+#product-slider .image a::after{
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    background-color: #ccc;
 }
 
 #product-slider .image img{
