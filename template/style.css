@@ -1285,7 +1285,143 @@ section p {
     line-height: 1.8em;
     letter-spacing: 0.2px;
 }
+.sidebar{
+    margin-bottom: 30px;
+}
+.sidebar .side-menu .head {
+    border-radius: 4px 4px 0px 0px;
+    color: #fff;
+    font-size: 20px;
+    font-family: 'Barlow', sans-serif;
+    padding: 8px 20px;
+    background-color: #42c090;
+    font-weight: 500;
+    letter-spacing: normal;
+}
+.sidebar .side-menu-inner .megamenu-horizontal {
+    background: #fff;
+    position: relative;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 20%);
+    padding: 10px 20px 15px 20px;
+}
+.sidebar .side-menu .nav > li > a {
+    display: block;
+    padding: 8px 0px;
+    color: #555;
+    font-family: 'Barlow', sans-serif;
+    letter-spacing: 0.2px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.sidebar .side-menu nav .nav > li a:hover{
+    color: #ee4054;
+}
 
+
+
+.card.product-list .lbl-cnt{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.card.product-list .lbl{
+    color: #666666;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 28px;
+}
+
+.card.product-list .lbl-cnt select{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    padding: 6px 12px;
+    background: #fff;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.42857143;
+}
+
+.card.product-list .list-container{
+    padding-top: 25px;
+}
+
+.card.product-list .list-container .product {
+    margin-bottom: 30px;
+}
+
+.card.product-list .list-container .product .image a {
+    width: 100%;
+    display: block;
+    position: relative;
+}
+
+.card.product-list .list-container .product-image{
+    position: relative;
+}
+
+.card.product-list .list-container .product-image img {
+    width: 100%;
+}
+
+.card.product-list .list-container .product .product-image .tag {
+    position: absolute;
+    background: #56cb60;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    top: 2.5%;
+    z-index: 100;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    color: #fff;
+    right: 10px;
+    text-align: center;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+}
+
+.card.product-list .list-container .product .product-info .brand {
+    padding-top: 15px;
+    color: #000;
+    background: #fdf2da;
+    display: block;
+    padding: 5px 15px;
+    border-radius: 999px;
+    position: absolute;
+    margin-top: -50px;
+    margin-left: 12px;
+}
+
+.card.product-list .list-container .product .product-info .name {
+    font-size: 16px;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    line-height: 1.3em;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.card.product-list .list-container .product .product-info .name a{
+    color: #555;
+}
+
+.card.product-list .product .product-info .product-price .price {
+    color: #333;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 30px;
+    margin-right: 8px;
+}
+
+.card.product-list .product .product-info .product-price .price-before-discount {
+    text-decoration: line-through;
+    color: #d3d3d3;
+    font-weight: 400;
+    line-height: 30px;
+    font-size: 14px;
+}
 
 
 /* Footer section */
