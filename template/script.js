@@ -227,4 +227,11 @@ $(document).ready(function () {
         }
     });
 
+
+    // Toggling
+
+    $('.navbar-toggle').on('click', function(){
+        $('.navbar').toggleClass('open');
+    });
+
 });
