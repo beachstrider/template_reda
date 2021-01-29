@@ -170,6 +170,15 @@ $(document).ready(function () {
         productCurSlide = 0,
         productNumOfSlides = 1;
 
+    (function(){
+        const deviceWidth = $(document).width();
+        if(deviceWidth < 576){
+            productNumOfSlides = 4;
+        }else if(deviceWidth < 992){
+            productNumOfSlides = 2;
+        }
+    })();
+
     function productChangeSlides(instant) {
         if (!instant) {
             $productSlider.addClass("animating");
