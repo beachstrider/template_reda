@@ -88,9 +88,9 @@
                 </a>
               </div>
             </div>
-            <div class='col-sm-7 col-md-5 col-sm-12 col-xs-12 product-info-block'>
+            <div class='col-xs-12 col-sm-7 col-md-4 product-info-block'>
               <div class="product-info">
-                <h1 class="name">Tee shirt Timberland homme</h1>
+                <h1 class="name">Tee shirt Timberland</h1>
                 <div class="stock-container">
                   <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -159,6 +159,9 @@
                   </div>
                 </div>
               </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4 product-sales-chart">
+              <canvas id="myChart" width="400" height="300"></canvas>
             </div>
           </div>
         </div>
@@ -454,4 +457,59 @@
 
   <script src="template/jquery-1.11.1.min.js"></script>
   <script src="template/script.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.min.js"></script>
+  <script>
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const color_amazon = 'orange';
+    const color_autre = 'lightblue';
+    const color_occasion = 'pink';
+    const myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Mon', 'Tue', 'Wen', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [
+          {
+            label: 'Amazon',
+            backgroundColor: color_amazon,
+            borderWidth: 1,
+            data: [8, 6, 3, 5, 2, 3, 9]
+          },
+          {
+            label: 'Autre Vendeur',
+            backgroundColor: color_autre,
+            borderWidth: 1,
+            data: [7, 5, 4, 4, 3, 6, 7]
+          },
+          {
+            label: 'Occasion',
+            backgroundColor: color_occasion,
+            borderWidth: 1,
+            data: [5, 3, 2, 6, 4, 2, 5]
+          },
+        ]
+      },
+      options: {
+        scales: {
+          xAxes: [{
+            gridLines: {
+              display: false
+            }
+          }],
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            },
+            gridLines: {
+              display: false
+            }
+          }]
+        },
+        title: {
+          display: true,
+          text: "Sales on Marketplaces"
+        },
+      }
+    });
+  </script>
 </body>
